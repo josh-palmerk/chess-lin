@@ -1,6 +1,6 @@
-package kotlin
+package kotlin_chess
 
-import javax.swing.JToolBar.Separator
+
 
 typealias BoardSquare = Pair<Char, Int>;
 typealias File = Array<Piece?>;
@@ -66,14 +66,19 @@ public class BoardHandler {
         }
     }
     
-    fun getAllRanks(board: Board) : List<List<Char>> {
-        var allRanksList = mutableListOf<MutableList<Char>>();
+    fun getAllRanks(board: Board) : List<List<String>> {
+        val allRanksList = mutableListOf<MutableList<String>>();
+        val rankList = mutableListOf<String>()
+        var fileChar : Char?; //= inputHandler.numberToLetter(j)
+        var file :File?; // = board.files[fileChar]
+        var gotten: Piece?
         for (i in 1..8) {   // Ranks 1-8
-            var rankList = mutableListOf<Char>()
+            rankList.clear()
             for (j in 1..8) {   // files a-h
-                val fileChar = inputHandler.numberToLetter(j)
-                val file = board.files[fileChar]
-                rankList.add((file!!.getOrNull(j) ?: ' ') as Char)
+                fileChar = inputHandler.numberToLetter(j)
+                file = board.files[fileChar]
+                gotten = file?.getOrNull(j)
+                rankList.add(gotten?.toString() ?: " ")
             }
             allRanksList.add(rankList)
         }
@@ -90,8 +95,24 @@ public class BoardHandler {
         
     }
     
-    fun addPiece(board: Board, piece: Piece){ 
-        board.files[piece.location!!.first]!![piece.location!!.second] = piece   // Added to board
+    fun printBoard2(board: Board) {
+        println("_________________________________________________")
+        var row = ""
+        for (rank in 1..8) {   // Ranks 1-8
+            row += "|  "
+            for (file in 1..8) {   // files a-h
+                row += board.files[inputHandler.numberToLetter(file)]?.get(rank - 1)?.toString() ?: " "
+                row += "  |  "
+            }
+            // row += " |"
+            println(row)
+            row = ""
+            println("_________________________________________________")
+        }
+    }
+    
+    fun addPiece(board: Board, piece: Piece){  // TODO not todo but might have bug with -1
+        board.files[piece.location!!.first]!![piece.location!!.second - 1] = piece   // Added to board
         //TODO optional add to allPieces attribute
     }
 //    override fun toString(): String {

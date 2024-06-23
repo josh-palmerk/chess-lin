@@ -1,6 +1,5 @@
-package kotlin
+package kotlin_chess
 
-import jdk.internal.foreign.abi.Binding
 
 fun main() {
     val name = "Kotlin"
@@ -9,11 +8,16 @@ fun main() {
     for (i in 1..5) {
     println("i = $i")
     }
+    val boardHandler = BoardHandler()
+    val inputHandler = InputHandler()
+    val gameHandler = GameHandler()
     
     
     // TODO: input loop
     
     // TODO: display board
+    val gameBoard = gameHandler.startGame("testing")
+    boardHandler.printBoard2(gameBoard)
 }
 
 // typealias MoveSet = Pair<Int, Int>;
@@ -82,6 +86,15 @@ class InputHandler {
 }
 
 class GameHandler {                  // TODO: a ton of this
+    
+    fun startGame(gameName: String) : Board {
+        val board = Board(gameName)
+        val boardHandler = BoardHandler()
+        for (piece in standardGameStart) {
+            boardHandler.addPiece(board, piece)
+        }
+        return board
+    }
     //fun exist legal moves
     //fun is in check
     var movesHistory: MutableList<String> = arrayListOf() // maybe moveset list? probably just 
@@ -89,11 +102,11 @@ class GameHandler {                  // TODO: a ton of this
     fun nextTurn() {
         
         if (activePlayer == PlayerColor.WHITE) activePlayer = PlayerColor.BLACK else activePlayer = PlayerColor.WHITE  // switch active color
-        // log pgn 
+        // OPTIONAL  log pgn 
     }
     
     fun logMove(move: String) { //maybe moveset?
-        // convert & add to moveshistory
+        // OPTIONAL  convert & add to moveshistory
     }
     // fun is game over
     // var game over : bool
@@ -101,3 +114,47 @@ class GameHandler {                  // TODO: a ton of this
     // var repeatcounter = 0 // how many times position has repeated
     // var stallCounter = 0 // full moves since last capture or pawn move
 }
+
+val standardGameStart: Array<Piece> = arrayOf(
+    Rook(Pair('a', 1), PlayerColor.WHITE),
+    Rook(Pair('a', 8), PlayerColor.BLACK),
+    
+    Knight(Pair('b', 1), PlayerColor.WHITE),
+    Knight(Pair('b', 8), PlayerColor.BLACK),
+    
+    Bishop(Pair('c', 1), PlayerColor.WHITE),
+    Bishop(Pair('c', 8), PlayerColor.BLACK),
+    
+    Queen(Pair('d', 1), PlayerColor.WHITE),
+    Queen(Pair('d', 8), PlayerColor.BLACK),
+    
+    King(Pair('e', 1), PlayerColor.WHITE),
+    King(Pair('e', 8), PlayerColor.BLACK),
+    
+    Bishop(Pair('f', 1), PlayerColor.WHITE),
+    Bishop(Pair('f', 8), PlayerColor.BLACK),
+    
+    Knight(Pair('g', 1), PlayerColor.WHITE),
+    Knight(Pair('g', 8), PlayerColor.BLACK),
+    
+    Rook(Pair('h', 1), PlayerColor.WHITE),
+    Rook(Pair('h', 8), PlayerColor.BLACK),
+
+    Pawn(Pair('a', 2), PlayerColor.WHITE),
+    Pawn(Pair('b', 2), PlayerColor.WHITE),
+    Pawn(Pair('c', 2), PlayerColor.WHITE),
+    Pawn(Pair('d', 2), PlayerColor.WHITE),
+    Pawn(Pair('e', 2), PlayerColor.WHITE),
+    Pawn(Pair('f', 2), PlayerColor.WHITE),
+    Pawn(Pair('g', 2), PlayerColor.WHITE),
+    Pawn(Pair('h', 2), PlayerColor.WHITE),
+
+    Pawn(Pair('a', 7), PlayerColor.BLACK),
+    Pawn(Pair('b', 7), PlayerColor.BLACK),
+    Pawn(Pair('c', 7), PlayerColor.BLACK),
+    Pawn(Pair('d', 7), PlayerColor.BLACK),
+    Pawn(Pair('e', 7), PlayerColor.BLACK),
+    Pawn(Pair('f', 7), PlayerColor.BLACK),
+    Pawn(Pair('g', 7), PlayerColor.BLACK),
+    Pawn(Pair('h', 7), PlayerColor.BLACK),
+    )

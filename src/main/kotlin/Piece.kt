@@ -1,7 +1,7 @@
-package kotlin
+package kotlin_chess
 import java.awt.Color
 import kotlin.*
-import kotlin.BoardHandler.*
+import kotlin_chess.BoardHandler.*
 
 enum class Direction {
     CARDINAL, DIAGONAL, FORWARD, OMNI, CHIVALROUS
