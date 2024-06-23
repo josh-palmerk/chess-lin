@@ -21,11 +21,11 @@ data class Board (
 
     // fun emptyBetween(sq1, sq2) : bool
 }
-
+val inputHandler = InputHandler()
 public class BoardHandler {
     
-    val inputHandler = InputHandler()
-    fun tryMovePiece(board: Board, piece: Piece, destination: BoardSquare) {
+    
+    fun tryMovePiece(board: Board, piece: Piece?, destination: BoardSquare) {
         // duplicate board
         var newBoard = board.copy();
         // make move on "try" board
@@ -35,11 +35,17 @@ public class BoardHandler {
         // if not, return pair(false, invalidReason)
     }
 
-    fun makeMove(board: Board, piece: Piece, destination: BoardSquare) {
-        
+    fun pieceAt(board: Board, square: BoardSquare): Piece? {
+        return board.files[square.first]?.get(square.second) //?: null
     }
     
-    // isnt this just what is_move_legal supposed to do
+    fun makeMove(board: Board, piece: Piece?, destination: BoardSquare) {
+        if (piece == null) return;
+        board.files[piece.location!!.first]!![piece.location!!.second] = null
+        board.files[destination.first]!![destination.second] = piece
+    }
+    
+
     public fun isSquareEmpty(board: Board, square: BoardSquare): Boolean {
         return board.files[square.first]!![square.second] == null
     }

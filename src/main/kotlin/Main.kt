@@ -11,25 +11,40 @@ fun main() {
     val boardHandler = BoardHandler()
     val inputHandler = InputHandler()
     val gameHandler = GameHandler()
-    
-    
+    var move = ""
+    var pieceChoice : Piece? = null
+    var pieceInput = ""
     // TODO: input loop
     
     // TODO: display board
     val gameBoard = gameHandler.startGame("testing")
     boardHandler.printBoard2(gameBoard)
+
+    println("Location of piece you'd like to move?")
+    pieceInput = readln()
+    pieceChoice = boardHandler.pieceAt(gameBoard, Pair(pieceInput[0], pieceInput[1].digitToInt()))
+    
+    println("Make a move:")
+    move = readln()
+    
+    boardHandler.makeMove(gameBoard, pieceChoice, Pair(move[0], move[1].digitToInt()));
+    // inputHandler.decodeMoveInput(gameBoard, move, gameHandler.activePlayer)
+
+    boardHandler.printBoard2(gameBoard)
+
 }
 
 // typealias MoveSet = Pair<Int, Int>;
 enum class PlayerColor {
     WHITE, BLACK
 }
-
+val boardHandler = BoardHandler()
 class InputHandler {
+    
     val letterToNumberMap = mapOf(
         'a' to 1, 'b' to 2, 'c' to 3, 'd' to 4, 
         'e' to 5, 'f' to 6, 'g' to 7, 'h' to 8,
-        null to null, 'z' to null
+        null to null, //'z' to null
     )
     val numberToLetterMap = mapOf(
         1 to 'a', 2 to 'b', 3 to 'c', 4 to 'd',
@@ -51,13 +66,25 @@ class InputHandler {
     }
     
     
-    fun decodeMoveInput(move: String) {
-        var stripped: String = move.filterNot { it in "+#" } //['+', '++', '#'] }
+    fun decodeMoveInput(board: Board, move: String, color: PlayerColor) {
+        var stripped: String = move.filterNot { it in "+# " } //['+', '++', '#'] }
         assert(!stripped.contains("+") && !stripped.contains("#"))
 
         when (move.length) {     // TODO: all below
             2 -> {
                 //pawn moves
+                if (letterToNumberMap.containsKey(stripped[0])) {
+                    if (color == PlayerColor.WHITE) {
+                        boardHandler.makeMove(board, boardHandler.pieceAt(board, Pair(stripped[0], stripped[1].digitToInt() - 1)), Pair(stripped[0], stripped[1].digitToInt() - 1))
+                    }
+                    else {
+                        boardHandler.makeMove(board, boardHandler.pieceAt(board, Pair(stripped[0], stripped[1].digitToInt() + 1)), Pair(stripped[0], stripped[1].digitToInt() - 1))
+                    }
+                    
+                }
+                else {
+                    // TODO: error message
+                }
             }
 
             3 -> {
