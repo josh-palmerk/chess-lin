@@ -85,9 +85,9 @@ Note that `IM` stands for Individual Module and `TP` stands for Team Project.
 | Date | Start Time | IM or TP | Description                      | Hours:Minutes |
 |------|------------|----------|----------------------------------|---------------|
 | 6/10 | 10am       | IM       | Planning phase                   | 2:00          |
-| 6/13 | 5pm        | IM       | Creating classes and basic logic |               |
+| 6/13 | 5pm        | IM       | Creating classes and basic logic | 3:30          |
 | 6/12 | 10am       | TP       | Insert statements                | 1:00          |
-|      |            |          |                                  |               |
+| 6/19 | 1pm        | IM       |                                  |               |
 |      |            |          |                                  |               |
 |      |            |          |                                  |               |
 
