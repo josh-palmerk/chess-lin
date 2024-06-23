@@ -82,44 +82,44 @@ Record all CSE 310 work that you do on your individual module or the team projec
 
 Note that `IM` stands for Individual Module and `TP` stands for Team Project.  
 
-| Date | Start Time | IM or TP | Description                      | Hours:Minutes |
-|------|------------|----------|----------------------------------|---------------|
-| 6/10 | 10am       | IM       | Planning phase                   | 2:00          |
-| 6/13 | 5pm        | IM       | Creating classes and basic logic | 3:30          |
-| 6/12 | 10am       | TP       | Insert statements                | 1:00          |
-| 6/19 | 1pm        | IM       |                                  |               |
-|      |            |          |                                  |               |
-|      |            |          |                                  |               |
+| Date | Start Time | IM or TP | Description                         | Hours:Minutes |
+|------|------------|----------|-------------------------------------|---------------|
+| 6/10 | 10am       | IM       | Planning phase                      | 2:00          |
+| 6/13 | 5pm        | IM       | Creating classes and basic logic    | 3:30          |
+| 6/12 | 10am       | TP       | Insert statements                   | 1:00          |
+| 6/19 | 1pm        | IM       | Scan for pieces and possible moves  | 6:00          |
+| 6/22 | 7pm        | IM       | Make the pieces move & change board | 5:00          |
+| 6/18 | 4pm        | TP       | More SQL formatting; Joins practice | 3:15          |
 
-_Note: Add more rows as needed._
 
 
 ## Part 3 - Module Results
 
 This section should be filled out at the end of the Sprint and submitted.
 
-1. Put your GitHub link for your demonstration software here: 
+1. Put your GitHub link for your demonstration software here: https://github.com/josh-palmerk/chess-lin
 
 2. Put your YouTube link for your code walkthrough and demo video here: https://youtu.be/1yILOm4GtPE
 
 3. Complete the following checklist by either indicating "Yes" or "No". If you indicate "No" then provide an explanation of why beneath the table.
 
-|Question                                                    |Response|
-|------------------------------------------------------------|--------|
-|Are the links above public and working?                     |        |
-|Did you complete all the unique requirements for the module?|        |
-|Did you write at least 100 lines of code?                   |        |
-|Did you fully complete the readme.md file?                  |        |
-|Did you put the readme.md file in GitHub in the top folder? |        |
+|Question                                                    | Response |
+|------------------------------------------------------------|----------|
+|Are the links above public and working?                     | Yes      |
+|Did you complete all the unique requirements for the module?| Yes      |
+|Did you write at least 100 lines of code?                   | Yes      |
+|Did you fully complete the readme.md file?                  | Yes      |
+|Did you put the readme.md file in GitHub in the top folder? | Yes      |
 
 4. If you completed a Stretch Challenge (as shown in the Module Description document in Canvas) then describe what you did.  If you did the Choose Your Own Adventure module, then you get to decide what qualifies as a Stretch Challenge.
-
+I don't believe I completed a stretch challenge.
 5. Did you change your selected module during the middle of the Sprint?  If yes, then describe what you changed it to, when you changed it, and why you changed it.
-
+I did not change.
 6. Using the log above, fill in the total hours and minutes you spent on the individual module:
 
-|Activity         |Total Hours:Minutes|
-|-----------------|-------------------|
-|Individual Module|                   |
+|Activity         | Total Hours:Minutes |
+|-----------------|---------------------|
+|Individual Module| 16:30               |
 
 7. What strategies (behavioral and technical) worked well during this Sprint?  What did not work well?  List some possible ways that you can improve next Sprint.
+I need to do the easy part first next time. I didn't focus on having a MVP and it shows. My program barely functions when interacted with. 
